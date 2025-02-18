@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schachspiel</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        #board1 {
+            width: 400px;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
     <h2>Schach</h2>
-    <div id="board1" style="width: 400px"></div>
-    
-    <!-- Füge die Bibliotheken ein -->
+    <div id="board1"></div>
+
+    <!-- Füge chess.js und chessboard.js Bibliotheken hinzu -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboardjs/1.0.0/chessboard-1.0.0.min.js"></script>
 
@@ -28,7 +33,8 @@
         // Stelle das Schachbrett auf den aktuellen Zustand des Spiels
         board1.position(game.fen());
 
-        // Du kannst hier Logik hinzufügen, um Züge zu machen oder zu prüfen.
+        // Optional: Ausgabe der FEN (Schachstellung)
+        console.log(game.fen());
     </script>
 </body>
 </html>
