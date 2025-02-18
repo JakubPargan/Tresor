@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schachspiel</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
         #board1 {
             width: 400px;
-            margin: 20px auto;
+            height: 400px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -15,25 +20,26 @@
     <h2>Schach</h2>
     <div id="board1"></div>
 
-    <!-- Füge chess.js und chessboard.js Bibliotheken hinzu -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <!-- Chessboard.js Bibliothek -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboardjs/1.0.0/chessboard-1.0.0.min.js"></script>
+    <!-- Chess.js Bibliothek -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
 
     <script>
-        // Initialisiere das Schachbrett mit chessboard.js
+        // Initialisierung des Schachbretts
         const board1 = Chessboard('board1', {
-            draggable: true,
-            dropOffBoard: 'trash',
-            sparePieces: true
+            draggable: true,        // Ermöglicht das Ziehen der Figuren
+            dropOffBoard: 'trash',  // Wenn Figuren außerhalb des Schachbretts abgelegt werden, gehen sie in den "Müll"
+            sparePieces: true       // Zeigt Ersatzfiguren an, die außerhalb des Schachbretts sind
         });
 
-        // Erstelle ein Schachspiel-Objekt mit chess.js
+        // Erstelle ein Schachspiel mit chess.js
         const game = new Chess();
 
-        // Stelle das Schachbrett auf den aktuellen Zustand des Spiels
+        // Stelle das Schachbrett auf den aktuellen Zustand des Spiels (leeres Schachbrett)
         board1.position(game.fen());
 
-        // Optional: Ausgabe der FEN (Schachstellung)
+        // Optional: Ausgabe der aktuellen Schachstellung (FEN-Notation) in der Konsole
         console.log(game.fen());
     </script>
 </body>
