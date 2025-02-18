@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Game App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login">
+        <h2>Passwort eingeben</h2>
+        <input type="password" id="password" placeholder="Passwort">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+    
+    <div id="game-selection" style="display: none;">
+        <h2>Wähle ein Spiel</h2>
+        <button onclick="startGame('tetris')">Tetris</button>
+        <button onclick="startGame('jumpandrun')">Jump and Run</button>
+        <button onclick="startGame('chess')">Schach</button>
+    </div>
+    
+    <div id="game-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
