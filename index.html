@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Game App</title>
+    <title>Schachspiel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="login">
-        <h2>Passwort eingeben</h2>
-        <input type="password" id="password" placeholder="Passwort">
-        <button onclick="checkPassword()">Login</button>
-    </div>
+    <h2>Schach</h2>
+    <div id="board1" style="width: 400px"></div>
     
-    <div id="game-selection" style="display: none;">
-        <h2>Wähle ein Spiel</h2>
-        <button onclick="startGame('tetris')">Tetris</button>
-        <button onclick="startGame('jumpandrun')">Jump and Run</button>
-        <button onclick="startGame('chess')">Schach</button>
-    </div>
-    
-    <div id="game-container"></div>
+    <!-- Füge die Bibliotheken ein -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboardjs/1.0.0/chessboard-1.0.0.min.js"></script>
 
-    <script src="script.js"></script>
+    <script>
+        // Initialisiere das Schachbrett mit chessboard.js
+        const board1 = Chessboard('board1', {
+            draggable: true,
+            dropOffBoard: 'trash',
+            sparePieces: true
+        });
+
+        // Erstelle ein Schachspiel-Objekt mit chess.js
+        const game = new Chess();
+
+        // Stelle das Schachbrett auf den aktuellen Zustand des Spiels
+        board1.position(game.fen());
+
+        // Du kannst hier Logik hinzufügen, um Züge zu machen oder zu prüfen.
+    </script>
 </body>
 </html>
